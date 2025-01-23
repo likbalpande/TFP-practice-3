@@ -8,6 +8,9 @@
 # to send these changes to the github
 4. git commit -m '...'
 # we also tell, why we did those changes
+
+# always PULL before PUSH
+ 
 5. git push
 # it can give error at the first time
 

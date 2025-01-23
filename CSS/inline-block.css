@@ -1,0 +1,16 @@
+div {
+    background-color: red;
+    padding: 10px;
+    border: 5px solid brown;
+    color: white;
+    height: 100px;
+    width: 400px;
+}
+span {
+    background-color: yellow;
+    height: 100px;
+    width: 400px;
+    /* padding-bottom: 10px;
+    padding-top: 10px; */
+    padding-left: 10px;
+}

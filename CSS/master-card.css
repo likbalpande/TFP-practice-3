@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.card-container {
+    background-color: #e6e5e5;
+    height: 338px;
+    width: 600px;
+    margin: 200px auto;
+    padding: 54px 100px;
+}
+
+.card {
+    background-color: #f6f7f7;
+    height: 230px;
+    border: 1px solid grey;
+    border-radius: 16px;
+
+    padding: 16px;
+}
+
+p {
+    font-size: 28px;
+}
+
+img {
+    height: 60px;
+    margin-top: -10px;
+    margin-left: -4px;
+}
+
+.chip {
+    padding: 1px;
+    background-color: red;
+    height: 40px;
+    width: 50px;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-left: 30px;
+    border-radius: 12px;
+}

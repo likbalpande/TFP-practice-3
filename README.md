@@ -18,5 +18,6 @@
 # 1. is remote added?
 # 2. is current branch present on remote?
 # 3. Are there any changes that happened on remote which my local system doesn't know?
+# 3 ---> PULL the code
 
 # NOTE: fixes will be shown when you get the error!

@@ -1,0 +1,14 @@
+.parent {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    padding-left: 40px;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+.child {
+    height: 200px;
+    width: 200px;
+    background-color: green;
+}

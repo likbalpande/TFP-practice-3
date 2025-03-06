@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f8f9;
+}
+
+form {
+    height: 728px;
+    width: 520px;
+    background-color: yellow;
+    border: 1px solid rgb(237, 233, 233);
+    margin: 70px auto;
+    border-radius: 40px;
+    padding: 40px 80px;
+}
+
+.container-2,
+.container-3,
+.container-4 {
+    background-color: green;
+    height: 100px;
+    margin-bottom: 32px;
+}
+
+.container-1 {
+    text-align: center;
+}
+
+.container-2 {
+    height: 336px;
+}
+
+.container-3 {
+    height: 152px;
+}
+
+.container-4 {
+    height: 16px;
+    margin-bottom: 0;
+}

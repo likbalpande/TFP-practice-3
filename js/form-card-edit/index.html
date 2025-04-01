@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            padding: 1rem;
+            background-color: antiquewhite;
+            border: 1px solid lightgrey;
+            width: fit-content;
+        }
+
+        .card {
+            width: 400px;
+            background-color: yellow;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin: 2rem auto;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div>
+            <label>Username</label>
+            <input type="text" placeholder="Type here..." name="username" onchange="handleUsername(event)">
+        </div>
+        <div>
+            <label>DOB</label>
+            <input type="date" name="dob" onchange="handleDOB(event)">
+        </div>
+        <button onclick="handleSubmit(event)">Submit</button>
+    </form>
+
+    <div class="card">
+        <h3></h3>
+        <h4></h4>
+        <button onclick="handleSubmit(event)">Edit</button>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+.form-comp {
+    padding: 1.25rem;
+    margin: 1.25rem;
+    border: 1px solid darkblue;
+    background-color: antiquewhite;
+    border-radius: 1rem;
+    width: fit-content;
+}
+
+.form-item {
+    margin: 1rem 0;
+    display: flex;
+    gap: 0.5rem;
+}
+
+section {
+    padding: 1.25rem;
+    margin: 1.25rem;
+    border: 1px solid darkblue;
+    background-color: darkseagreen;
+    border-radius: 1rem;
+    width: fit-content;
+}

@@ -1,20 +1,90 @@
 import { useState } from "react";
 
+// re-render --- re-run --> kuch naya return --> kuch alag dikhega
 function TodoApp() {
-    // const [title, setTitle] = useState("");
-    const [todo, setTodo] = useState({});
-    // const [description, setDescription] = useState("");
+    const [todo, setTodo] = useState(() => {
+        console.log("--- setting useState -------");
+        const oldTodosString = localStorage.getItem("todos");
+        if (oldTodosString === null) return [];
+        else {
+            const oldTodosArr = JSON.parse(oldTodosString);
+            return oldTodosArr;
+        }
+    });
+
+    const [editIndex, setEditIndex] = useState(-1);
+    console.log("🟡 : editIndex:", editIndex);
+
+    localStorage.setItem("todos", JSON.stringify(todo));
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(e.target.title.value);
-        // setTitle(e.target.title.value);
-        // console.log(e.target.description.value);
-        // setDescription(e.target.description.value);
-        setTodo({
-            title: e.target.title.value,
-            description: e.target.description.value,
+        // mutability in js
+
+        // const temp = [...todo];
+        // temp.push({
+        //     title: e.target.title.value,
+        //     description: e.target.description.value,
+        // });
+        // setTodo(temp);
+
+        // setTodo([
+        //     ...todo, // []
+        //     {
+        //         title: e.target.title.value,
+        //         description: e.target.description.value,
+        //         priority: "low",
+        //     },
+        // ]); // kr dunga ---> noted! // schedule
+
+        // setTodo([
+        //     ...todo,
+        //     {
+        //         title: e.target.title.value,
+        //         description: e.target.description.value,
+        //         priority: "high",
+        //     },
+        // ]); // kr dunga ---> noted! // schedule
+
+        setTodo((prev) => {
+            return [
+                ...prev, // [{}]
+                {
+                    title: e.target.title.value,
+                    description: e.target.description.value,
+                    priority: "low",
+                },
+            ];
         });
+
+        setTodo((prev) => {
+            return [
+                ...prev, // [{}]
+                {
+                    title: e.target.title.value,
+                    description: e.target.description.value,
+                    priority: "high",
+                },
+            ];
+        });
+    };
+
+    const handleDelete = (i) => {
+        console.log(i);
+        setTodo((prev) => {
+            const temp = [...prev];
+            temp.splice(i, 1);
+            return temp;
+        }); // noted!
+    };
+
+    const handleEditTodo = (e) => {
+        console.log(e);
+        e.preventDefault();
+    };
+
+    const handleCancelEdit = () => {
+        setEditIndex(-1);
     };
 
     return (
@@ -30,9 +100,53 @@ function TodoApp() {
                 </div>
                 <button>Add</button>
             </form>
-            <div>
-                <h1>{todo.title}</h1>
-                <h4>{todo.description}</h4>
+            <div className="todo-card-container">
+                {todo.map((elem, idx) => {
+                    if (editIndex !== idx) {
+                        return (
+                            <div className="todo-card" key={idx}>
+                                <h2>{elem.title}</h2>
+                                <h3>{elem.description}</h3>
+                                <p>{elem.priority}</p>
+                                <button
+                                    onClick={() => {
+                                        handleDelete(idx);
+                                    }}
+                                >
+                                    Delete
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        setEditIndex(idx);
+                                    }}
+                                >
+                                    Edit
+                                </button>
+                            </div>
+                        );
+                    } else {
+                        return (
+                            <div className="todo-card" key={idx}>
+                                <form onSubmit={handleEditTodo} onReset={handleCancelEdit}>
+                                    <div>
+                                        <label>Title</label>
+                                        <input defaultValue={elem.title} required></input>
+                                    </div>
+                                    <div>
+                                        <label>Description</label>
+                                        <input defaultValue={elem.description} required></input>
+                                    </div>
+                                    <div>
+                                        <label>Priority</label>
+                                        <input defaultValue={elem.priority} required></input>
+                                    </div>
+                                    <button>Save</button>
+                                    <button type="reset">Cancel</button>
+                                </form>
+                            </div>
+                        );
+                    }
+                })}
             </div>
         </div>
     );

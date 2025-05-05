@@ -16,3 +16,15 @@ body {
 .body-container h2 {
     color: lime;
 }
+
+.todo-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.todo-card {
+    padding: 1rem;
+    border: 1px solid lightskyblue;
+}

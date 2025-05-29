@@ -13,15 +13,11 @@ const HomePage = () => {
     const getData = () => {
         const skipItems = limit * (page - 1);
         const pr = fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skipItems}`);
-        pr.then((res) => {
-            const pr2 = res.json();
-
-            pr2.then((data) => {
-                console.log(data);
-                setProductsArray(data.products); // noted!
-                setTotalProducts(data.total);
-                setPage(data.skip / limit + 1);
-            });
+        pr.then((res) => res.json()).then((data) => {
+            console.log(data);
+            setProductsArray(data.products); // noted!
+            setTotalProducts(data.total);
+            setPage(data.skip / limit + 1);
         });
     };
 
